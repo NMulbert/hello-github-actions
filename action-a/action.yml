@@ -3,7 +3,7 @@ description: "Greet someone"
 author: "octocat@github.com"
 
 inputs:
-  MY_NAME:
+    who-to-greet:  "MY_NAME"
     description: "Who to greet"
     required: true
     default: "World"
@@ -11,6 +11,8 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
+  args:
+    - ${{ inputs.who-to-greet }}
 
 branding:
   icon: "mic"
